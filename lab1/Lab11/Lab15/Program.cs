@@ -48,7 +48,6 @@ namespace Lab15
             else if (passwordStrength == PasswordStrength.Hard)
             {
                 int length = passwordLength.Next(10, 31); // 10-30
-                Random numbersGenerator = new Random();
                 for (int i = 1; i <= length; ++i)
                 {
                     int choice = choiceGenerator.Next(0, 3); // 0-2
