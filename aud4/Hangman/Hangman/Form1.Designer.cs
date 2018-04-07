@@ -105,6 +105,7 @@
             this.txtProbaniBukvi.ReadOnly = true;
             this.txtProbaniBukvi.Size = new System.Drawing.Size(960, 53);
             this.txtProbaniBukvi.TabIndex = 0;
+            this.txtProbaniBukvi.TabStop = false;
             // 
             // pbObidi
             // 

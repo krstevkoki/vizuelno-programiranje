@@ -102,9 +102,11 @@ namespace Hangman
                 char guess = txtBukva.Text.ToLower()[0];
                 if (!char.IsLetter(guess))
                 {
+                    timerVreme.Stop();
                     message = "Не внесовте буква";
                     caption = "Грешка при погодување";
                     MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    timerVreme.Start();
                 }
                 else
                 {
