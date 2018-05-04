@@ -17,6 +17,7 @@ namespace FlyingBall
         public BallDoc BallDoc { get; set; }
         public string FileName { get; set; }
         private int _counter;
+        private readonly Random _rand;
 
         public Form1()
         {
@@ -25,6 +26,7 @@ namespace FlyingBall
             FileName = string.Empty;
             if (pauseToolStripMenuItem.Text != "Resume")
                 timer1.Start();
+            _rand = new Random();
             this.DoubleBuffered = true;
         }
 
@@ -37,6 +39,7 @@ namespace FlyingBall
             if (res == DialogResult.Yes)
             {
                 BallDoc = new BallDoc(this.Width);
+                FileName = string.Empty;
                 pauseToolStripMenuItem.Text = "Pause";
                 timer1.Start();
                 Invalidate(true);
@@ -201,9 +204,9 @@ namespace FlyingBall
         {
             if (_counter % 8 == 0) // add a ball
             {
-                var rand = new Random();
                 BallDoc.AddBall(new Point(-Ball.Radius * 2,
-                    rand.Next(Ball.Radius * 2, (this.Height - statusStrip1.Height - Ball.Radius * 2))));
+                    _rand.Next(Ball.Radius * 2 + toolStrip1.Height, 
+                        this.Height - statusStrip1.Height - Ball.Radius * 2 - 10)));
             }
 
             ++_counter;
@@ -223,6 +226,13 @@ namespace FlyingBall
         private void Form1_ResizeEnd(object sender, EventArgs e)
         {
             BallDoc.Width = this.Width;
+            if (pauseToolStripMenuItem.Text != "Resume")
+                timer1.Start();
+        }
+
+        private void Form1_ResizeBegin(object sender, EventArgs e)
+        {
+            timer1.Stop();
         }
     }
 }
