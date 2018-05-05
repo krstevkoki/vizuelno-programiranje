@@ -37,9 +37,7 @@ namespace ColorRectangles
         {
             var dialog = new ColorDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
-            {
                 Color = dialog.Color;
-            }
         }
 
         private void newToolStripButton_Click(object sender, EventArgs e)
@@ -84,11 +82,8 @@ namespace ColorRectangles
                 dialog.FileName = Filename.Substring(Filename.LastIndexOf(@"\") + 1);
 
             if (dialog.ShowDialog() == DialogResult.OK)
-            {
                 Filename = dialog.FileName;
-            }
-            else
-                return;
+            else return;
 
             try
             {
@@ -114,11 +109,8 @@ namespace ColorRectangles
                 dialog.FileName = Filename.Substring(Filename.LastIndexOf(@"\") + 1);
 
             if (dialog.ShowDialog() == DialogResult.OK)
-            {
                 Filename = dialog.FileName;
-            }
-            else
-                return;
+            else return;
 
             try
             {
@@ -158,7 +150,7 @@ namespace ColorRectangles
                 }
                 else
                 {
-                    _teme2 = new Point(e.X, e.Y);
+                    _teme2 = e.Location;
                     int width = Math.Abs(_teme2.X - _teme1.X);
                     int height = Math.Abs(_teme2.Y - _teme1.Y);
                     Point teme;
@@ -184,7 +176,7 @@ namespace ColorRectangles
         {
             if (_teme1 != Point.Empty)
             {
-                _teme2 = new Point(e.X, e.Y);
+                _teme2 = e.Location;
                 Invalidate();
             }
         }
@@ -196,7 +188,7 @@ namespace ColorRectangles
 
             if (_drawingContour)
             {
-                Pen pen = new Pen(Color.Gray, 2);
+                var pen = new Pen(Color.Gray, 2);
                 pen.DashStyle = DashStyle.Dot;
 
                 int width = Math.Abs(_teme2.X - _teme1.X);
@@ -235,6 +227,22 @@ namespace ColorRectangles
         {
             RectangleDoc.DeleteSelected();
             Invalidate(true);
+        }
+
+        private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (selectAllToolStripMenuItem.Text == "Select &All")
+            {
+                RectangleDoc.SelectAll(true);
+                selectAllToolStripMenuItem.Text = "Unselect &All";
+            }
+            else
+            {
+                RectangleDoc.SelectAll(false);
+                selectAllToolStripMenuItem.Text = "Select &All";
+            }
+
+            Invalidate();
         }
     }
 }
