@@ -42,6 +42,12 @@ namespace ColorRectangles
                     rectangle.Selected = !rectangle.Selected;
         }
 
+        public void SelectAll(bool status)
+        {
+            foreach (var rectangle in Rectangles)
+                rectangle.Selected = status;
+        }
+
         public void DeleteSelected()
         {
             for (int i = Rectangles.Count - 1; i >= 0; i--)
