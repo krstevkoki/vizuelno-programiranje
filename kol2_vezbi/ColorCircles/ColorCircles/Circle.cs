@@ -40,8 +40,8 @@ namespace ColorCircles
 
         public bool Select(Point location)
         {
-            return Math.Sqrt(Math.Pow(Center.X - (location.X - Radius), 2) + 
-                             Math.Pow(Center.Y - (location.Y - Radius), 2)) <= _diameter;
+            return Math.Sqrt(Math.Pow(Center.X - location.X, 2) + 
+                             Math.Pow(Center.Y - location.Y, 2)) <= _diameter;
         }
     }
 }

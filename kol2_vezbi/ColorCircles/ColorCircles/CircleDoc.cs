@@ -36,8 +36,13 @@ namespace ColorCircles
         public void Select(Point location)
         {
             foreach (var circle in Circles)
+            {
                 if (circle.Select(location))
+                {
                     circle.Selected = !circle.Selected;
+                    return;
+                }
+            }
         }
 
         public void RemoveSelected()
