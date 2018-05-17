@@ -86,17 +86,18 @@ namespace SlidingBalls
 
         public bool Clicked(Point point)
         {
-            return Distance(Center, point) <= Radius * Radius;
+            return Distance(Center, point) <= Radius;
         }
 
         public bool TouchesGreen(Ball b)
         {
-            return b.Color == Color.Green && Distance(this.Center, b.Center) <= (Radius * Radius) * 4;
+            return b.Color == Color.Green && 
+                   Distance(this.Center, b.Center) <= Diameter;
         }
 
         private static double Distance(Point point1, Point point2)
         {
-            return Math.Pow(point1.X - point2.X, 2) + Math.Pow(point1.Y - point2.Y, 2);
+            return Math.Sqrt(Math.Pow(point1.X - point2.X, 2) + Math.Pow(point1.Y - point2.Y, 2));
         }
     }
 
