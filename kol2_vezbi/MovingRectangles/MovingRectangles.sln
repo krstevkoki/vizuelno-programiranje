@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovingRectangles", "MovingRectangles\MovingRectangles.csproj", "{5ED17B23-D0C9-44F0-9C0D-C238374C79BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5ED17B23-D0C9-44F0-9C0D-C238374C79BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ED17B23-D0C9-44F0-9C0D-C238374C79BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ED17B23-D0C9-44F0-9C0D-C238374C79BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ED17B23-D0C9-44F0-9C0D-C238374C79BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AC94E1F1-F862-4F5B-859F-AA88F8F7E3F5}
+	EndGlobalSection
+EndGlobal
