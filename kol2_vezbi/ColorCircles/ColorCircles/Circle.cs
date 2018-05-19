@@ -18,7 +18,7 @@ namespace ColorCircles
 
         public Circle(Point center, Color color, int radius)
         {
-            Center = new Point(center.X - radius, center.Y - radius);
+            Center = center;
             Color = color;
             Radius = radius;
             _diameter = 2 * Radius;
@@ -28,12 +28,12 @@ namespace ColorCircles
         public void Draw(Graphics g)
         {
             Brush brush = new SolidBrush(Color);
-            g.FillEllipse(brush, Center.X, Center.Y, _diameter, _diameter);
+            g.FillEllipse(brush, Center.X - Radius, Center.Y - Radius, _diameter, _diameter);
             brush.Dispose();
             if (Selected)
             {
                 var pen = new Pen(Color.Red, 5);
-                g.DrawEllipse(pen, Center.X, Center.Y, _diameter, _diameter);
+                g.DrawEllipse(pen, Center.X - Radius, Center.Y - Radius, _diameter, _diameter);
                 pen.Dispose();
             }
         }
@@ -41,7 +41,7 @@ namespace ColorCircles
         public bool Select(Point location)
         {
             return Math.Sqrt(Math.Pow(Center.X - location.X, 2) + 
-                             Math.Pow(Center.Y - location.Y, 2)) <= _diameter;
+                             Math.Pow(Center.Y - location.Y, 2)) <= Radius;
         }
     }
 }
